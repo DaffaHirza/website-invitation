@@ -53,7 +53,7 @@ export default function CountdownSection({
                 <div className="flex items-center justify-center gap-4 md:gap-8">
                     {Object.entries(timeLeft).map(([unit, value]) => (
                         <div key={unit} className="flex flex-col items-center">
-                            <span className="text-7xl font-serif text-white/95 mb-2">
+                            <span className="text-5xl md:text-7xl font-serif text-white/95 mb-2">
                                 {value.toString().padStart(2, '0')}
                             </span>
                             <span className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-white/50">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { toast } from 'react-hot-toast';
 
 export default function WishesSection() {
     const [formData, setFormData] = useState({
@@ -38,30 +39,24 @@ export default function WishesSection() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
                 },
-                body: JSON.stringify({
-                    name: formData.name,
-                    message: formData.message
-                })
+                body: JSON.stringify(formData)
             });
 
-            if (response.ok) {
-                const newWish = {
-                    name: formData.name,
-                    message: formData.message,
-                    created_at: new Date().toISOString()
-                };
+            const result = await response.json();
 
-                setWishesList([newWish, ...wishesList]);
+            if (response.ok) {
+                setWishesList([result, ...wishesList]);
                 setFormData({ name: '', message: '' });
-                alert('Terima kasih atas ucapan dan doa Anda!');
+                toast.success('Pesan Anda berhasil dikirim!');
             } else {
-                alert('Gagal mengirim ucapan. Pastikan backend berjalan.');
+                toast.error('Gagal mengirim ucapan. Coba lagi nanti.');
+                console.error(result);
             }
         } catch (error) {
-            console.error("Error submitting wish:", error);
-            alert('Terjadi kesalahan koneksi.');
+            console.error("Fetch error:", error);
+            toast.error('Gagal menghubungi server.');
         } finally {
             setIsSubmitting(false);
         }

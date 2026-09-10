@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 type OpeningPageProps = {
     floralImage: string;
     pinImage: string;
-    coupleName?: string;
+    orang?: string;
     bgColor?: string;
     onOpen: () => void;
 };
@@ -32,7 +32,7 @@ const SEAL_FLOAT = {
 export default function OpeningPage({
     floralImage,
     pinImage,
-    coupleName = 'Ricky + Felly',
+    orang = 'John Doe',
     bgColor = '#3d1414',
     onOpen,
 }: OpeningPageProps) {
@@ -62,10 +62,11 @@ export default function OpeningPage({
                     alt=""
                     draggable={false}
                     className="absolute top-0 left-0 h-full w-auto max-w-none pointer-events-none select-none z-[1]
-                               sm:opacity-90 opacity-80"
+                               md:opacity-100 opacity-60"
                     style={{
                         objectFit: 'cover',
                         objectPosition: 'left center',
+
                     }}
                 />
                 <div
@@ -88,7 +89,7 @@ export default function OpeningPage({
                     alt=""
                     draggable={false}
                     className="absolute top-0 right-0 h-full w-auto max-w-none pointer-events-none select-none z-[1]
-                               sm:opacity-90 opacity-80"
+                               md:opacity-100 opacity-60"
                     style={{
                         transform: 'scaleX(-1)',
                         objectFit: 'cover',
@@ -132,10 +133,12 @@ export default function OpeningPage({
                         />
 
                         <span className="relative text-sm md:text-3xl text-white font-cormorant mb-8">
-                            Kami Mengundang Anda ke Pernikahan
                         </span>
-                        <span className="relative text-8xl font-great-vibes text-white/90 tracking-wide mb-6">
-                            {coupleName}
+                        <span className="relative text-3xl md:text-8xl font-bold font-great-vibes text-white/90 tracking-wide mb-6">
+                            Dear {orang}
+                        </span>
+                        <span className="relative text-sm md:text-3xl text-white font-cormorant mb-8">
+                            Dengan penuh sukacita, kami mengundang Anda untuk menjadi bagian dari hari istimewa kami.
                         </span>
 
                         <img

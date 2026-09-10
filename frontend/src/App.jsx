@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Toaster } from 'react-hot-toast'
 import OpeningPage from './pages/OpeningPage'
 import HeroSection from './sections/HeroSection'
 import StorySection from './sections/StorySection'
@@ -16,6 +17,24 @@ function App() {
 
   return (
     <>
+      <Toaster 
+        position="top-center" 
+        toastOptions={{
+          style: {
+            background: '#3d1414',
+            color: '#fdfaf6',
+            fontFamily: 'serif',
+            border: '1px solid rgba(193,154,107,0.3)',
+            borderRadius: '4px',
+          },
+          success: {
+            iconTheme: {
+              primary: '#C19A6B',
+              secondary: '#3d1414',
+            },
+          },
+        }} 
+      />
       <div className="w-full min-h-screen bg-white">
 
         <HeroSection />

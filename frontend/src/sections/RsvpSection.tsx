@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { toast } from 'react-hot-toast';
 
 export default function RsvpSection() {
     const [formData, setFormData] = useState({
@@ -34,15 +35,22 @@ export default function RsvpSection() {
             const result = await response.json();
 
             if (response.ok) {
-                alert('Terima kasih atas konfirmasi Anda!');
+                toast.success('Terima kasih atas konfirmasi Anda!');
                 // Reset form jika perlu
+                setFormData({
+                    name: '',
+                    email: '',
+                    attendance: 'hadir',
+                    guests: '1',
+                    message: ''
+                });
             } else {
-                alert('Gagal menyimpan RSVP. Pastikan backend berjalan.');
+                toast.error('Gagal menyimpan RSVP. Coba lagi nanti.');
                 console.error(result);
             }
         } catch (error) {
             console.error("Fetch error:", error);
-            alert('Gagal menghubungi server. Pastikan backend berjalan di port 8000.');
+            toast.error('Gagal menghubungi server.');
         } finally {
             setIsSubmitting(false);
         }
