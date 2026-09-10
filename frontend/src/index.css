@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --font-allura: "Allura", cursive;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-great-vibes: "Great Vibes", cursive;
+}
