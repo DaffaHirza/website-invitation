@@ -1,4 +1,4 @@
-# Website Undangan Pernikahan Digital - Ricky & Fellycia
+# Website Undangan Pernikahan Digital 
 
 Website komprehensif untuk undangan pernikahan digital interaktif. Dibangun dengan arsitektur *full-stack* modern yang mendukung fitur galeri foto, penghitung waktu mundur (*countdown*), formulir kehadiran tamu (RSVP), buku tamu digital (*wishes*), serta pemutar musik latar yang dinamis. Proyek ini merupakan bagian dari *hometask* Invitato.
 
