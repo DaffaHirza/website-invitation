@@ -17,7 +17,8 @@ export default function RsvpSection() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('http://localhost:8000/api/rsvp', {
+            const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+            const response = await fetch(`${apiUrl}/rsvp`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -144,6 +145,9 @@ export default function RsvpSection() {
                                         >
                                             <option value="1">1 Orang</option>
                                             <option value="2">2 Orang</option>
+                                            <option value="3">3 Orang</option>
+                                            <option value="4">4 Orang</option>
+                                            <option value="5">5 Orang</option>
                                         </select>
                                     </motion.div>
                                 )}

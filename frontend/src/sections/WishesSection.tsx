@@ -14,7 +14,8 @@ export default function WishesSection() {
     useEffect(() => {
         const fetchWishes = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/wishes');
+                const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+                const response = await fetch(`${apiUrl}/wishes`);
                 const data = await response.json();
                 if (response.ok) {
                     setWishesList(data.reverse());
@@ -32,7 +33,8 @@ export default function WishesSection() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('http://localhost:8000/api/wishes', {
+            const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+            const response = await fetch(`${apiUrl}/wishes`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

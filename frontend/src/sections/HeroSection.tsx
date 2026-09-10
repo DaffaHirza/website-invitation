@@ -12,7 +12,7 @@ export default function HeroSection({
     coupleName = 'Ricky & Felly',
     date = 'Sabtu, 20 Desember 2025',
     venue = 'Hotel Grand Ballroom, Jakarta',
-    heroImage = 'src/assets/heroimage.png',
+    heroImage = 'assets/heroimage.png',
 }: HeroSectionProps) {
     const [loaded, setLoaded] = useState(false);
 
@@ -23,7 +23,6 @@ export default function HeroSection({
 
     return (
         <section className="w-full h-screen relative items-center justify-center overflow-hidden bg-[#3d1414]">
-            {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <img
                     src={heroImage}
